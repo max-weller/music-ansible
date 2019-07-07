@@ -68,13 +68,10 @@
       state: restarted
       enabled: true
 
-- name: fix static /deezer/ prefix from reverse proxy in index.html and custom.js
-  shell: sed -i 's@/static/@/deezer/static/@' /opt/deezer/app/templates/index.html
-      
-- name: fix api /deezer/ prefix from reverse proxy in index.html and custom.js
-  shell: sed -i 's@/api/@/deezer/api/@' /opt/deezer/app/templates/index.html
+- name: fix url /deezer/ prefix from reverse proxy in app settings.py
+  shell: sed -i 's@url_prefix = "/"@url_prefix = "/deezer/"@' /opt/deezer/app/settings.py
 
-- name: fix api /deezer/ prefix from reverse proxy in index.html and custom.js
+- name: set update_mpd preference in app settings.py
   shell: sed -i 's@update_mpd = False@update_mpd = True@' /opt/deezer/app/settings.py
 
 - name: install nginx
