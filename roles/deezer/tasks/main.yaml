@@ -14,7 +14,7 @@
 
 - name: clone deezer repo
   git:
-      repo: https://gitlab.com/kmille/deezer-downloader.git
+      repo: https://github.com/kmille/deezer-downloader.git
       dest: /opt/deezer
       force: true
 
