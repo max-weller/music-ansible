@@ -1,13 +1,17 @@
 diff --git a/htdocs/index.html b/htdocs/index.html
-index ed77279..47f5ab3 100644
+index ed77279..139169e 100644
 --- a/htdocs/index.html
 +++ b/htdocs/index.html
-@@ -38,6 +38,7 @@
+@@ -34,10 +34,11 @@
+ 
+         <ul id="nav_links" class="nav navbar-nav">
+           <li id="queue"><a href="#/">Queue</a></li>
+-          <li id="browse"><a href="#/browse/0/">Browse database</a></li>
++          <li id="browse"><a href="#/browse/0/">Browse</a></li>
            <li id="dirble"><a href="#/dirble/">Dirble</a></li>
            <li><a href="#" data-toggle="modal" data-target="#addstream">Add Stream</a></li>
            <li><a href="#" data-toggle="modal" data-target="#settings" onclick="getHost();">Settings</a></li>
-+          <li><a href="" onclick="win = window.open('/deezer/', '_blank'); win.focus();">Download new music </a></li>
++          <li><a href="/deezer/">Download</a></li>
          </ul>
  
          <div class="btn-toolbar navbar-btn navbar-right" role="toolbar">
-
