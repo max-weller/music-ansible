@@ -44,17 +44,29 @@
       group: deezer
       state: directory
 
+- name: fix url /deezer/ prefix from reverse proxy in app settings.py
+  lineinfile:
+    path: /opt/deezer/app/settings.py
+    regexp: '^url_prefix ='
+    line: url_prefix = "/deezer/"
+
+- name: set music directory in app settings.py
+  lineinfile:
+    path: /opt/deezer/app/settings.py
+    regexp: '^music_dir ='
+    line: music_dir = "/opt/music"
+
+- name: set update_mpd preference in app settings.py
+  lineinfile:
+    path: /opt/deezer/app/settings.py
+    regexp: '^update_mpd ='
+    line: update_mpd = True
+
 - name: start deezer service 
   service:
       name: deezer
       state: restarted
       enabled: true
-
-- name: fix url /deezer/ prefix from reverse proxy in app settings.py
-  shell: sed -i 's@url_prefix = "/"@url_prefix = "/deezer/"@' /opt/deezer/app/settings.py
-
-- name: set update_mpd preference in app settings.py
-  shell: sed -i 's@update_mpd = False@update_mpd = True@' /opt/deezer/app/settings.py
 
 - name: install nginx
   apt:
